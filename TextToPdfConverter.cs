@@ -1,8 +1,5 @@
-﻿using iText.Layout.Properties;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
 
 namespace AaronHodgsonTextToPDF
 {
@@ -17,6 +14,8 @@ namespace AaronHodgsonTextToPDF
 
         public void Convert(string line)
         {
+            if (line == null) 
+                throw new ArgumentNullException();
 
             if (line.StartsWith(".large"))
             {
@@ -48,6 +47,7 @@ namespace AaronHodgsonTextToPDF
             }
             else if (line.StartsWith(".indent"))
             {
+
                 if (line.Contains("+"))
                 {
                     var indentValue = System.Convert.ToInt32(line.Split("+").Last());

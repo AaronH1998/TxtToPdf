@@ -9,6 +9,9 @@ namespace AaronHodgsonTextToPDF
     {
         public string[] GetLines(string inputDir)
         {
+            if (string.IsNullOrEmpty(inputDir))
+                throw new ArgumentException();
+
             using (StreamReader reader = new StreamReader(inputDir))
             {
                 var content = reader.ReadToEnd();

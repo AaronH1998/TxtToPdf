@@ -3,7 +3,7 @@ using iText.Layout;
 using iText.Layout.Element;
 using iText.Layout.Properties;
 using System;
-using System.IO;
+using System.Drawing;
 
 namespace AaronHodgsonTextToPDF
 {
@@ -13,9 +13,10 @@ namespace AaronHodgsonTextToPDF
         private Paragraph Paragraph { get; set; }
         private Text Text { get; set; }
 
-        public iTextWrapper()
+        public iTextWrapper(string outputDir)
         {
-            string outputDir = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "\\Output\\output.pdf";
+            if (string.IsNullOrEmpty(outputDir)) 
+                throw new ArgumentException();
 
             PdfWriter writer = new PdfWriter(outputDir);
             PdfDocument pdf = new PdfDocument(writer);
@@ -32,6 +33,9 @@ namespace AaronHodgsonTextToPDF
 
         public void AddToParagraph(string text)
         {
+            if (text == null) 
+                throw new ArgumentNullException();
+
             Text.SetText(text);
             Paragraph.Add(Text);
             Text = new Text("");              
@@ -45,6 +49,8 @@ namespace AaronHodgsonTextToPDF
 
         public void SetFontSize(float size)
         {
+            if (size == null)
+                throw new ArgumentNullException();
             Text.SetFontSize(size);
         }
 
@@ -60,12 +66,18 @@ namespace AaronHodgsonTextToPDF
 
         public void Fill()
         {
-            Paragraph.SetTextAlignment(TextAlignment.JUSTIFIED);            
+            Paragraph.SetTextAlignment(TextAlignment.JUSTIFIED);
         }
 
         public void Indent(int indentValue)
         {
-            Paragraph.SetMarginLeft(indentValue * 20);
+            using (Graphics graphics = Graphics.FromImage(new Bitmap(1, 1)))
+            {
+                float indentUnit = graphics.MeasureString("WWWWW", new Font("Helvetica", 12, FontStyle.Regular, GraphicsUnit.Point)).Width; 
+                //Requirements stated that each unit should be the size of the string "WWWWW"
+
+                Paragraph.SetMarginLeft(indentValue * indentUnit);
+            }
         }
 
         public void CloseDocument()
