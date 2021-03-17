@@ -3,9 +3,7 @@ using iText.Layout;
 using iText.Layout.Element;
 using iText.Layout.Properties;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace AaronHodgsonTextToPDF
 {
@@ -36,7 +34,7 @@ namespace AaronHodgsonTextToPDF
         {
             Text.SetText(text);
             Paragraph.Add(Text);
-            Text = new Text("");
+            Text = new Text("");              
         }
 
         public void CommitParagraph()
@@ -62,12 +60,11 @@ namespace AaronHodgsonTextToPDF
 
         public void Fill()
         {
-            Paragraph.SetTextAlignment(TextAlignment.JUSTIFIED);
+            Paragraph.SetTextAlignment(TextAlignment.JUSTIFIED);            
         }
 
         public void Indent(int indentValue)
         {
-            
             Paragraph.SetMarginLeft(indentValue * 20);
         }
 

@@ -1,22 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 
 namespace AaronHodgsonTextToPDF
 {
-    public class FileRepository
+    public class FileRepository : IFileRepository
     {
-        public string[] ReadSourceDocument(StreamReader reader)
+        public string[] GetLines(string inputDir)
         {
-            var content = reader.ReadToEnd();
-
-            var lines = content.Split('\n')
-                .Select(p => p.TrimEnd(new char[] { '\r' }))
-                .ToArray();
-
-            return lines;
+            using (StreamReader reader = new StreamReader(inputDir))
+            {
+                var content = reader.ReadToEnd();
+                var serialiser = new GearsetSerialiser();
+                return serialiser.Deserialise(content);
+            }
         }
     }
 }

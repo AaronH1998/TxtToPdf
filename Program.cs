@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 
 namespace AaronHodgsonTextToPDF
@@ -11,27 +10,13 @@ namespace AaronHodgsonTextToPDF
         {
             var pdfWriter =  new iTextWrapper();
             
-            var conversionController = new ConversionController(pdfWriter);
+            var textToPdfConverter = new TextToPdfConverter(pdfWriter);
 
             for (var x = 0; x < 10; x++) //Included to demonstrate paginaton.
             {
-                foreach (var line in GetLines(args[0]))
-                {
-                    conversionController.Convert(line);
-                }
-                pdfWriter.CommitParagraph();
+                new ConversionController(new FileRepository()).Run(args[0], textToPdfConverter, pdfWriter);
             }
-
             pdfWriter.CloseDocument();
-        }
-
-        private static string[] GetLines(string inputDir)
-        {
-            using (StreamReader reader = new StreamReader(inputDir))
-            {
-                var fileRepository = new FileRepository();
-                return fileRepository.ReadSourceDocument(reader);
-            }
         }
     }
 }
