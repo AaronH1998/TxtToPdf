@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AaronHodgsonTextToPDF", "AaronHodgsonTextToPDF\AaronHodgsonTextToPDF.csproj", "{04A5D61B-278E-4A97-BEC8-338172EB1AA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextToPdfTests", "TextToPdfTests\TextToPdfTests.csproj", "{03D09709-134E-4F4F-9697-F91B29BA7011}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04A5D61B-278E-4A97-BEC8-338172EB1AA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04A5D61B-278E-4A97-BEC8-338172EB1AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04A5D61B-278E-4A97-BEC8-338172EB1AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04A5D61B-278E-4A97-BEC8-338172EB1AA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03D09709-134E-4F4F-9697-F91B29BA7011}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03D09709-134E-4F4F-9697-F91B29BA7011}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03D09709-134E-4F4F-9697-F91B29BA7011}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03D09709-134E-4F4F-9697-F91B29BA7011}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5CDCCF91-A278-4DF8-BD4B-91A6CA139E17}
+	EndGlobalSection
+EndGlobal
