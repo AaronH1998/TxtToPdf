@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AaronHodgsonTextToPDF": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Users\\Aaron\\source\\repos\\AaronHodgsonTextToPDF\\AaronHodgsonTextToPDF\\Input\\input.txt C:\\Users\\Aaron\\source\\repos\\AaronHodgsonTextToPDF\\AaronHodgsonTextToPDF\\Output\\output.pdf"
+    }
+  }
+}
